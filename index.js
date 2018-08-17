@@ -23,6 +23,12 @@ function ajaxCall(){
     });
 }
 
+function randomFunction(){
+    $('#update').empty();
+    $('#search').empty();
+    $('iframe').attr('src', 'https://en.wikipedia.org/wiki/Special:Random');
+
+}
 
 $(document).ready(function(){
 
@@ -30,5 +36,13 @@ $(document).ready(function(){
     $('#search').off();
     $('#search').on('keyup', function(){
         ajaxCall();
+        $('iframe').attr('src','');
+
+    });
+    //show random wiki Article
+    $('.random').on('click', function(){
+        randomFunction();
+        $(this).text('Show another random article');
+
     });
 });
